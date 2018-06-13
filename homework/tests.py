@@ -4,8 +4,9 @@ def test_even_fucntion():
     и возвращает из них только четные.
     """
 
-    def even_filter(*args):
-        pass
+    def even_filter(abc, *args):
+        my_list = [arg for arg in args if arg % 2 == 0]
+        return my_list
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
