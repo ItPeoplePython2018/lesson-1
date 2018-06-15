@@ -4,10 +4,22 @@ def test_even_fucntion():
     и возвращает из них только четные.
     """
 
-    def even_filter(*args):
-        pass
 
+    def even_filter(*args):
+        my_list = []
+        for arg in args:
+            try:
+                arg % 2 == 0
+            except TypeError:
+                continue
+            if arg % 2 == 0:
+                my_list.append(arg)
+            else:
+                pass
+        return my_list
+    
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
+    assert even_filter(8, 1, 2, 3, 4, 5, 6, "qwe", "asd", 8 , 8) == [8, 2, 4, 6, 8, 8]
 
 
 def test_increment_decorator():
