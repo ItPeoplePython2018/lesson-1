@@ -5,7 +5,9 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        pass
+        even = [arg for arg in args if arg % 2 == 0]
+        print(even)
+        return even
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
@@ -16,7 +18,12 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
+        def magic(arg1):
+            print("Добавляем к полученному числу 1")
+            arg2 = arg1 + 1
+            print("Получили: ", arg2)
+            return func(arg2)
+        return magic
 
     @increment_derocator
     def returner(value):
@@ -24,7 +31,7 @@ def test_increment_decorator():
 
     assert returner(1) == 2
 
-
+import math
 def test_point_segment_class():
     """
     Дано: есть класс Point, описывающий точку на плоскости. Необходимо закончить класс Segment, описывающий отрезок,
@@ -44,7 +51,9 @@ def test_point_segment_class():
             pass
 
         def length(self):
-            return 0
+            dist = math.hypot(p2.x - p1.x, p2.y - p1.y)
+            print("Расстояние между двумя точками равно: ", dist)
+            return dist
 
     p1 = Point(0, 0)
     p2 = Point(3, 4)
