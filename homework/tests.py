@@ -5,7 +5,7 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        return [2, 4, 6]
+        return [2, 4, 6, 5]
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
