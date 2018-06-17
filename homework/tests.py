@@ -10,14 +10,10 @@ def test_even_fucntion():
     def even_filter(*args):
         my_list = []
         for arg in args:
-            try:
-                arg % 2 == 0
-            except TypeError:
+            if not isinstance(arg, int):
                 continue
             if arg % 2 == 0:
                 my_list.append(arg)
-            else:
-                pass
         return my_list
     
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
@@ -31,9 +27,8 @@ def test_increment_decorator():
     """
     def increment_derocator(func):
         def wrapper(value):
-            value +=1
-            func(value)
-            return value
+            value += 1
+            return func(value)
         return wrapper
 
     @increment_derocator
@@ -59,13 +54,11 @@ def test_point_segment_class():
 
     class Segment():
         def __init__(self, p1, p2):
-            self.x1 = p1.x
-            self.y1 = p1.y
-            self.x2 = p2.x
-            self.y2 = p2.y
+            self.p1 = p1
+            self.p2 = p2
         
         def length(self):
-            return math.sqrt(pow(self.x1 - self.x2 , 2) + pow(self.y1 - self.y2 , 2))
+            return math.sqrt(pow(self.p1.x - self.p2.x , 2) + pow(self.p1.y - self.p2.y , 2))
     
     p1 = Point(0, 0)
     p2 = Point(3, 4)
