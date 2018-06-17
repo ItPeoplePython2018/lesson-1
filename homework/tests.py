@@ -28,7 +28,11 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
+        def wrapper(value):
+            value +=1
+            func(value)
+            return value
+        return wrapper
 
     @increment_derocator
     def returner(value):
@@ -53,12 +57,16 @@ def test_point_segment_class():
 
     class Segment():
         def __init__(self, p1, p2):
-            pass
-
+            self.x1 = p1.x
+            self.y1 = p1.y
+            self.x2 = p2.x
+            self.y2 = p2.y
+        
         def length(self):
-            return 0
-
+            return math.sqrt(pow(self.x1 - self.x2 , 2) + pow(self.y1 - self.y2 , 2))
+    
     p1 = Point(0, 0)
     p2 = Point(3, 4)
+    
     assert Segment(p1, p2).length() == 5.0
     assert Segment(p2, p1).length() == 5.0
