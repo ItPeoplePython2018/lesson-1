@@ -35,7 +35,7 @@ def test_increment_decorator():
 
 
     
-    def test_point_segment_class():
+def test_point_segment_class():
     """
     Дано: есть класс Point, описывающий точку на плоскости. Необходимо закончить класс Segment, описывающий отрезок,
     принимающий на вход 2 точки и позволяющий посчитать его длину.
