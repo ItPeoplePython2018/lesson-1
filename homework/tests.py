@@ -1,3 +1,5 @@
+import math
+
 def test_even_fucntion():
     """
     Необходимо реализовать функцию even_filter, которая получает неограниченное количество аргументов
@@ -39,7 +41,6 @@ def test_increment_decorator():
     Модуль с математическими функциями называется math, документация по нему находится здесь:
     https://docs.python.org/3/library/math.html?highlight=math#module-math
     """
-    import math
     class Point():
         def __init__(self, x, y):
             self.x = x
