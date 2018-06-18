@@ -31,7 +31,8 @@ def test_increment_decorator():
     assert returner(1) == 2
 
 
-def test_point_segment_class():
+    import math
+    def test_point_segment_class():
     """
     Дано: есть класс Point, описывающий точку на плоскости. Необходимо закончить класс Segment, описывающий отрезок,
     принимающий на вход 2 точки и позволяющий посчитать его длину.
