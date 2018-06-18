@@ -6,7 +6,6 @@ def test_even_fucntion():
 
     def even_filter(*args):
         even = [arg for arg in args if arg % 2 == 0]
-        print(even)
         return even
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
@@ -19,9 +18,7 @@ def test_increment_decorator():
     """
     def increment_derocator(func):
         def magic(arg1):
-            print("Добавляем к полученному числу 1")
             arg2 = arg1 + 1
-            print("Получили: ", arg2)
             return func(arg2)
         return magic
 
@@ -45,14 +42,13 @@ def test_point_segment_class():
             self.x = x
             self.y = y
 
-
     class Segment():
         def __init__(self, p1, p2):
-            pass
+            self.p1 = p1
+            self.p2 = p2
 
         def length(self):
-            dist = math.hypot(p2.x - p1.x, p2.y - p1.y)
-            print("Расстояние между двумя точками равно: ", dist)
+            dist = math.hypot(self.p2.x - self.p1.x, self.p2.y - self.p1.y)
             return dist
 
     p1 = Point(0, 0)
