@@ -1,3 +1,4 @@
+
 import math
 
 def test_even_fucntion():
@@ -41,22 +42,22 @@ def test_increment_decorator():
     Модуль с математическими функциями называется math, документация по нему находится здесь:
     https://docs.python.org/3/library/math.html?highlight=math#module-math
     """
+    
     class Point():
         def __init__(self, x, y):
             self.x = x
             self.y = y
-
-
+    
     class Segment():
         def __init__(self, p1, p2):
             self.p1 = p1
             self.p2 = p2
-
+            
         def length(self):
             sq1 = (self.p1.x - self.p2.x)**2
             sq2 = (self.p1.y - self.p2.y)**2
             return math.sqrt(sq1 + sq2)
-
+        
     p1 = Point(0, 0)
     p2 = Point(3, 4)
     assert Segment(p1, p2).length() == 5.0
