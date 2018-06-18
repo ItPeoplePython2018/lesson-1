@@ -1,4 +1,3 @@
-
 import math
 
 def test_even_fucntion():
@@ -39,10 +38,7 @@ def test_point_segment_class():
     """
     Дано: есть класс Point, описывающий точку на плоскости. Необходимо закончить класс Segment, описывающий отрезок,
     принимающий на вход 2 точки и позволяющий посчитать его длину.
-    Модуль с математическими функциями называется math, документация по нему находится здесь:
-    https://docs.python.org/3/library/math.html?highlight=math#module-math
-    """
-    
+    """ 
     class Point():
         def __init__(self, x, y):
             self.x = x
