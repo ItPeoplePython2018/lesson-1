@@ -10,9 +10,7 @@ def test_even_fucntion():
     def even_filter(*args):
         my_list = []
         for arg in args:
-            if not isinstance(arg, int):
-                continue
-            if arg % 2 == 0:
+            if isinstance(arg, int) and arg % 2 == 0:
                 my_list.append(arg)
         return my_list
     
@@ -58,7 +56,7 @@ def test_point_segment_class():
             self.p2 = p2
         
         def length(self):
-            return math.sqrt(pow(self.p1.x - self.p2.x , 2) + pow(self.p1.y - self.p2.y , 2))
+            return math.sqrt(pow(self.p1.x - self.p2.x, 2) + pow(self.p1.y - self.p2.y, 2))
     
     p1 = Point(0, 0)
     p2 = Point(3, 4)
