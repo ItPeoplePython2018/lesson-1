@@ -1,3 +1,6 @@
+import math
+
+
 def test_even_fucntion():
     """
     Необходимо реализовать функцию even_filter, которая получает неограниченное количество аргументов
@@ -48,6 +51,7 @@ def test_point_segment_class():
             value = math.sqrt(math.pow(self.p1.x - self.p2.x, 2) + math.pow(self.p1.y - self.p2.y, 2))
             return value
 
+        
     p1 = Point(0, 0)
     p2 = Point(3, 4)
     assert Segment(p1, p2).length() == 5.0
