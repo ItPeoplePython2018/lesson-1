@@ -8,12 +8,13 @@ def test_even_fucntion():
 
     def even_filter(*args):
         res = []
-        for count in args:
-            if args[count-1]%2==0:
-                res.append(args[count-1])
+        for arg in args:
+            if arg %2 ==0:
+                res.append(arg)
         return res
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
+    assert even_filter(1, 99, 3, 4, 5, 6) == [4, 6]
 
 
 def test_increment_decorator():
@@ -23,7 +24,7 @@ def test_increment_decorator():
     """
     def increment_derocator(func):
         def decor(val):
-            return func(val)+1
+            return func(val+1)
         return decor
 
     @increment_derocator
