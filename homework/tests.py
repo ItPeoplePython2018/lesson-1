@@ -5,7 +5,8 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        pass
+        even_filter = [x for x in args if x % 2 == 0]
+    return even_filter
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
@@ -16,7 +17,10 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
+       def wrapper(value):
+        value += 1
+        return func (value)
+    return wrapper
 
     @increment_derocator
     def returner(value):
