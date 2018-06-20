@@ -8,7 +8,11 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        pass
+        result = []
+        for i in args:
+            if i % 2 == 0:
+                result.append(i)
+        return result
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
@@ -19,13 +23,16 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
+        def wrapper(value):
+            return func(value + 1)
+        return wrapper
 
     @increment_derocator
     def returner(value):
         return value
 
     assert returner(1) == 2
+
 
 
 def test_point_segment_class():
