@@ -7,10 +7,10 @@ def test_even_fucntion():
     def even_filter(*args):
         a = []
         a = [i for i in args if i % 2 ==0]
-            if a == []:
-                print('Нет четных значений')
-            else:
-                print(a)
+        if a == []:
+            print('Нет четных значений')
+        else:
+            print(a)
         return a
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
