@@ -28,7 +28,7 @@ def test_increment_decorator():
 
     assert returner(1) == 2
 
-
+import math
 def test_point_segment_class():
     """
     Дано: есть класс Point, описывающий точку на плоскости. Необходимо закончить класс Segment, описывающий отрезок,
