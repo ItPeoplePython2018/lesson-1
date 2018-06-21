@@ -3,4 +3,4 @@ python:
   - 3.6
 install:
   - pip install pytest
-script: pytest homework/tests.py
+script: pytest -v homework/tests.py
