@@ -45,10 +45,12 @@ def test_point_segment_class():
 
     class Segment():
         def __init__(self, p1, p2):
-            pass
+            self.p1 = p1
+            self.p2 = p2
 
         def length(self):
-            return 0
+            value = math.sqrt(math.pow(self.p1.x - self.p2.x, 2) + math.pow(self.p1.y - self.p2.y, 2))
+            return value
 
     p1 = Point(0, 0)
     p2 = Point(3, 4)
