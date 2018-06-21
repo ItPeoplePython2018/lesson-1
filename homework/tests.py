@@ -1,3 +1,6 @@
+import math
+
+
 def test_even_fucntion():
     """
     Необходимо реализовать функцию even_filter, которая получает неограниченное количество аргументов
@@ -5,7 +8,11 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        pass
+        result = []
+        for i in args:
+            if i % 2 == 0:
+                result.append(i)
+        return result
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
@@ -16,13 +23,16 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
+        def wrapper(value):
+            return func(value + 1)
+        return wrapper
 
     @increment_derocator
     def returner(value):
         return value
 
     assert returner(1) == 2
+
 
 
 def test_point_segment_class():
@@ -38,14 +48,17 @@ def test_point_segment_class():
             self.x = x
             self.y = y
 
-
+            
     class Segment():
         def __init__(self, p1, p2):
-            pass
+            self.p1 = p1
+            self.p2 = p2
 
         def length(self):
-            return 0
+            value = math.sqrt(math.pow(self.p1.x - self.p2.x, 2) + math.pow(self.p1.y - self.p2.y, 2))
+            return value
 
+        
     p1 = Point(0, 0)
     p2 = Point(3, 4)
     assert Segment(p1, p2).length() == 5.0
