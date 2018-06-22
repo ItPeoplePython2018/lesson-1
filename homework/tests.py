@@ -23,10 +23,10 @@ def test_translate():
         for wd in words:
             for arg in dictionary:
                 if arg == wd:
-                    list.append(dictionary[arg]
-        l = "".join(list)
+                    list.append(dictionary[arg])  
+        l = " ".join(list)
         print(l)
-
+        
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
     assert translate("я люблю питон", {"я": "i", "люблю": "love", "питон": "python"}) == "i love python"
