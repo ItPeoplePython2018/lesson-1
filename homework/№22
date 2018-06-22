@@ -5,7 +5,7 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        pass
+        return[i for i in args if i % 2 == 0]
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
@@ -16,12 +16,13 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
-
+        def wrapper(value):
+             func(value+1)
+        return wrapper
+  
     @increment_derocator
     def returner(value):
         return value
-
     assert returner(1) == 2
 
 
@@ -40,12 +41,16 @@ def test_point_segment_class():
 
 
     class Segment():
-        def __init__(self, p1, p2):
-            pass
-
-        def length(self):
-            return 0
-
+         def __init__(self, p1, p2):
+             pass
+             self.p1 = p1
+             self.p2 = p2
+  
+         def length(self):
+           
+             length = math.hypot(self.p1.x - self.p2.x, self.p1.y - self.p2.y)
+             
+             return length
     p1 = Point(0, 0)
     p2 = Point(3, 4)
     assert Segment(p1, p2).length() == 5.0
@@ -72,7 +77,14 @@ def test_translate():
     Документация по этому методу: https://docs.python.org/3/library/stdtypes.html#str.join
     """
     def translate(fraze, dictionary):
-        pass
+        def translate(fraze, dic):
+            i = fraze.split()
+            Num = len(i)
+            Tran=[]
+            for a in range(Num):
+                Tran.append(dic[i[a]])
+            Translate = " ".join(Tran)
+            return Translate
 
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
@@ -93,7 +105,7 @@ def test_is_prime():
     """
 
     def is_prime(n):
-        pass
+       
 
     assert is_prime(2)
     assert is_prime(3)
