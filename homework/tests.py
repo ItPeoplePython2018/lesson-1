@@ -25,7 +25,7 @@ def test_translate():
                 if arg == wd:
                     list.append(dictionary[arg])  
         l = " ".join(list)
-        print(l)
+        return(l)
         
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
