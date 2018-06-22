@@ -5,12 +5,13 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
- +      result = []
-+       for i in args:
-+           if i % 2 == 0:
-+               result.append(i)
-        return result
+        result = []
 
+    for i in args:
+        if i % 2 == 0:
+            result.append(i)
+        return result
+    
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
 
@@ -21,8 +22,8 @@ def test_increment_decorator():
     """
     def increment_derocator(func):
     def wrapper(value):
-+       return func(value + 1)
-+       return wrapper   
+       return func(value + 1)
+       return wrapper   
 
     @increment_derocator
     def returner(value):
