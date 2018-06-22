@@ -77,7 +77,14 @@ def test_translate():
     Документация по этому методу: https://docs.python.org/3/library/stdtypes.html#str.join
     """
     def translate(fraze, dictionary):
-        pass
+        def translate(fraze, dic):
+            i = fraze.split()
+            Num = len(i)
+            Tran=[]
+            for a in range(Num):
+                Tran.append(dic[i[a]])
+            return Tran
+            " ".join(Tran)
 
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
