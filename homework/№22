@@ -83,8 +83,8 @@ def test_translate():
             Tran=[]
             for a in range(Num):
                 Tran.append(dic[i[a]])
-            return Tran
-            " ".join(Tran)
+            Translate = " ".join(Tran)
+            return Translate
 
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
