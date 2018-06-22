@@ -6,9 +6,7 @@ def test_even_fucntion():
      """
  
     def even_filter(*args):
-        pass
-
-	    return[i for i in args if i % 2 == 0]
+        return[i for i in args if i % 2 == 0]
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
  
  
@@ -18,7 +16,6 @@ def test_increment_decorator():
      декрорируемую функцию.
      """
     def increment_derocator(func):
-        pass
         def wrapper(value):
             func(value+1)
         return wrapper
@@ -52,8 +49,7 @@ def test_increment_decorator():
         def length(self):
             return 0
             length = math.hypot(self.p1.x - self.p2.x, self.p1.y - self.p2.y)
-            return lenght
- л
+            return length
     p1 = Point(0, 0)
     p2 = Point(3, 4)
     assert Segment(p1, p2).length() == 5.0
