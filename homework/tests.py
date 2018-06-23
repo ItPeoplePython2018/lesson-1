@@ -72,7 +72,14 @@ def test_translate():
     Документация по этому методу: https://docs.python.org/3/library/stdtypes.html#str.join
     """
     def translate(fraze, dictionary):
-        pass
+        list = []
+        words = fraze.split()
+        for word in words:
+            for arg in dictionary:
+                if arg == word:
+                    list.append(dictionary[arg])
+        l = " ".joint(list)
+        return(l)
 
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
@@ -93,7 +100,13 @@ def test_is_prime():
     """
 
     def is_prime(n):
-        pass
+        if n <= 1:
+            return False
+        my_list = list(range(2, n))
+        for x in my_list:
+            if n % 1 == 0:
+                returne False
+        return True
 
     assert is_prime(2)
     assert is_prime(3)
