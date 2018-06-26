@@ -1,3 +1,7 @@
+from math import hypot
+from math import sqrt
+from itertools import count, islice
+
 def test_even_fucntion():
     """
     Необходимо реализовать функцию even_filter, которая получает неограниченное количество аргументов
@@ -5,7 +9,8 @@ def test_even_fucntion():
     """
 
     def even_filter(*args):
-        pass
+        even = [arg for arg in args if arg % 2 == 0]
+        return even
 
     assert even_filter(1, 2, 3, 4, 5, 6) == [2, 4, 6]
 
@@ -16,14 +21,16 @@ def test_increment_decorator():
     декрорируемую функцию.
     """
     def increment_derocator(func):
-        pass
+        def magic(arg1):
+            arg2 = arg1 + 1
+            return func(arg2)
+        return magic
 
     @increment_derocator
     def returner(value):
         return value
 
     assert returner(1) == 2
-
 
 def test_point_segment_class():
     """
@@ -38,19 +45,19 @@ def test_point_segment_class():
             self.x = x
             self.y = y
 
-
     class Segment():
         def __init__(self, p1, p2):
-            pass
+            self.p1 = p1
+            self.p2 = p2
 
         def length(self):
-            return 0
+            dist = hypot(self.p2.x - self.p1.x, self.p2.y - self.p1.y)
+            return dist
 
     p1 = Point(0, 0)
     p2 = Point(3, 4)
     assert Segment(p1, p2).length() == 5.0
     assert Segment(p2, p1).length() == 5.0
-
 
 def test_translate():
     """
@@ -58,13 +65,11 @@ def test_translate():
     Фраза состоит из слов, написанных в нижнем регистре, разделенных пробелом (знаки препинания в фразе отсутствуют).
     Словарь состоит из пар ключ-значение, где каждый ключ это слово на языке оригинале, значение - перевод этого слова.
     Перевод осуществляется пословно. В словаре переведены все слова, которые встречаются в оригинале.
-
     Для разделения строки на список слов можно воспользоваться методом split(). Пример:
     >>> s = "My little string"
     >>> s.split()
     ['My', 'little', 'string']
     Документация по этому методу: https://docs.python.org/3/library/stdtypes.html#str.split
-
     Для объединения списка строк в одну, разделенную пробелами можно воспользоваться методом " ".join(l). Пример:
     >>> l = ["My", "little", "string"]
     >>> " ".join(l)
@@ -72,7 +77,11 @@ def test_translate():
     Документация по этому методу: https://docs.python.org/3/library/stdtypes.html#str.join
     """
     def translate(fraze, dictionary):
-        pass
+        l = []
+        for word in fraze.split():
+            l.append(dictionary[word])
+        words = " ".join(l)
+        return words
 
     assert translate("hello world", {"hello": "привет", "world": "мир"}) == "привет мир"
     assert translate("привет мир", {"привет": "hello", "мир": "world"}) == "hello world"
@@ -84,7 +93,6 @@ def test_is_prime():
     Реализовать функцию is_prime, возвращающую, является ли переданное значение простым.
     Простым числом считается такое число, которое целочисленно делится на 1 и на само себя.
     Подробнее про простые числа: https://ru.wikipedia.org/wiki/Простое_число
-
     Для решения может понадобиться функция range(), которая может принимать 2 числа, и
     генерировать список чисел от a до b, не включая b. Пример:
     >>> list(range(3, 10))
@@ -93,7 +101,11 @@ def test_is_prime():
     """
 
     def is_prime(n):
-        pass
+        if n < 2: return False
+        for number in islice(count(2), int(sqrt(n) - 1)):
+            if not n % number:
+                return False
+        return True
 
     assert is_prime(2)
     assert is_prime(3)
