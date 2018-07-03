@@ -25,6 +25,7 @@ def test_increment_decorator():
     def increment_derocator(func):
         def wrapper(arg1):
             arg1 += 1
+            func(arg1)
             return arg1
         return wrapper
    
